@@ -83,15 +83,92 @@ toast("putos" ${textView.text}")
 
 
 
+## Clases
+
+Todas las clases son cerradas por defecto, no se puede extender una clase al menos que sea abierta
+
+Solo existe un constructor principal
+
+una clase abstracta es abierta por defecto
+
+
+
+```kotlin
+abstract class Person (name: String, age: Int)
+
+class Developer: Person{
+
+    constructor(name: String):super(name,29)
+
+    constructor(age: Int ):super("Fanco", age)
+}
+
+```
+
+
+
+## Properties
+
+
+
+Equivalente a un campo + un getter + setter
+
+Pareciera que es atra vez de un campo publico, pero detras hay un getter y un setter
+
+Usando init se pueden iniciar algunos campos
+
+Evitando incializar campos con init, o dentro d elas clases
+
+```kotlin
+abstract class Person (val name: String, val age: Int)
+```
+
+properties
+
+field se usa para hacer referencia al valor del campo
+
+
+
+```kotlin
+abstract class Person (name: String, val age: Int){
+
+    var name = name
+    get() = "name: $field"
+    
+    set(value){
+        field = value
+    }
+
+}
+
+
+
+class Developer: Person{
+
+    constructor(name: String):super(name,29)
+
+    constructor(age: Int ):super("Fanco", age)
+}
+
+fun test(){
+
+    val d = Developer("Pancho")
+
+    val name = d.name //name pancho
+}
+```
 
 
 
 
 
+kapt es una libreria para cargar imagenes
 
 
 
-
+```kotlin
+kapt 'com.github.bumptech.glide:compiler:4.11.0'
+```
 
 
 

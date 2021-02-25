@@ -11,6 +11,20 @@ import com.bumptech.glide.Glide
 class MediaAdapter(val items: List<MediaItem>): RecyclerView.Adapter<MediaAdapter.viewHolder>() {
 
 
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_media_item,parent,false)
+        return viewHolder(view)
+    }
+
+    override fun getItemCount(): Int = items.size
+
+    override fun onBindViewHolder(holder: viewHolder, position: Int) {
+
+        val item = items[position]
+        holder.bind(item)
+    }
+
     class viewHolder(view: View): RecyclerView.ViewHolder(view){
 
         val titlle: TextView = view.findViewById(R.id.mediaTitle)
@@ -25,18 +39,6 @@ class MediaAdapter(val items: List<MediaItem>): RecyclerView.Adapter<MediaAdapte
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_media_item,parent,false)
-        return viewHolder(view)
-    }
-
-    override fun getItemCount(): Int = items.size
-
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
-
-        val item = items[position]
-        holder.bind(item)
-    }
 }
 
 class MediaItem(val name: String, val img: String)

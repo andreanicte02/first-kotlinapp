@@ -44,3 +44,5 @@ fun getItems(): List<MediaItem> = listOf(
         MediaItem("Title 9", "https://placekitten.com/200/200?image=9"),
         MediaItem("Title 10", "https://placekitten.com/200/200?image=10")
 )
+
+
